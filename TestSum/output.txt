@@ -4,55 +4,55 @@ Program: TestSum
 
 - initializations 
 - starting tests ... 
-  - current scale (0/5): 10000
+  - current scale (1/5): 10000
   - setting array data: random numbers between 0 and 1.
   - running float straight ... 
-    result: 4972.65  (1.10813 ns/item)
+      result: 4988.73  (1.0871 ns/item)
   - running double straight ... 
-    result: 4972.65  (1.33228 ns/item)
+      result: 4988.73  (1.09131 ns/item)
   - running float kahan ... 
-    result: 4972.65  (4.80632 ns/item)
+      result: 4988.73  (4.70235 ns/item)
   - running float dncs2 ... 
-    result: 4972.65  (0.635796 ns/item)
-  - current scale (1/5): 100000
+      result: 4988.73  (0.55587 ns/item)
+  - current scale (2/5): 100000
   - setting array data: random numbers between 0 and 1.
   - running float straight ... 
-    result: 50009  (1.24178 ns/item)
+      result: 49953.2  (1.22231 ns/item)
   - running double straight ... 
-    result: 50009.2  (1.17129 ns/item)
+      result: 49953  (1.22862 ns/item)
   - running float kahan ... 
-    result: 50009.2  (4.58349 ns/item)
+      result: 49953  (4.84375 ns/item)
   - running float dncs2 ... 
-    result: 50009.2  (0.604846 ns/item)
-  - current scale (2/5): 1000000
+      result: 49953  (0.520955 ns/item)
+  - current scale (3/5): 1000000
   - setting array data: random numbers between 0 and 1.
   - running float straight ... 
-    result: 500389  (1.1313 ns/item)
+      result: 499734  (1.14637 ns/item)
   - running double straight ... 
-    result: 500385  (1.18281 ns/item)
+      result: 499725  (1.14616 ns/item)
   - running float kahan ... 
-    result: 500385  (4.49159 ns/item)
+      result: 499725  (4.50778 ns/item)
   - running float dncs2 ... 
-    result: 500385  (0.518172 ns/item)
-  - current scale (3/5): 10000000
+      result: 499725  (0.545118 ns/item)
+  - current scale (4/5): 10000000
   - setting array data: random numbers between 0 and 1.
   - running float straight ... 
-    result: 5.00165e+06  (1.11543 ns/item)
+      result: 5.00177e+06  (1.11673 ns/item)
   - running double straight ... 
-    result: 5.00153e+06  (1.12685 ns/item)
+      result: 5.00186e+06  (1.131 ns/item)
   - running float kahan ... 
-    result: 5.00153e+06  (4.44455 ns/item)
+      result: 5.00186e+06  (4.47473 ns/item)
   - running float dncs2 ... 
-    result: 5.00153e+06  (0.638444 ns/item)
-  - current scale (4/5): 100000000
+      result: 5.00186e+06  (0.635098 ns/item)
+  - current scale (5/5): 100000000
   - setting array data: random numbers between 0 and 1.
   - running float straight ... 
-    result: 1.67772e+07  (1.11568 ns/item)
+      result: 1.67772e+07  (1.12693 ns/item)
   - running double straight ... 
-    result: 4.99982e+07  (1.11713 ns/item)
+      result: 5.00016e+07  (1.12048 ns/item)
   - running float kahan ... 
-    result: 4.99982e+07  (4.47732 ns/item)
+      result: 5.00016e+07  (4.46644 ns/item)
   - running float dncs2 ... 
-    result: 4.99982e+07  (0.639279 ns/item)
+      result: 5.00016e+07  (0.629808 ns/item)
 Done.
 
