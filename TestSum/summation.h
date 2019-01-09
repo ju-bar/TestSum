@@ -7,6 +7,7 @@
 #pragma once
 
 #define _SUMMATION_BUFFER		0x1000	// number of temporary buffer items for summation
+#define _SUMMATION_BTF_THR		32 // min. number of items for a butterfly to work, otherwise fallback to straight sum
 
 
 // straight float summation without attempting error correction

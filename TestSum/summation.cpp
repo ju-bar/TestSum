@@ -55,13 +55,11 @@ void fkahan(float *a, size_t n, float *s)
 
 void fdncs2m(float *a, size_t n, float *s)
 {
-	// roll out to 5
+	// small array handling
 	if (n <= 0) { *s = 0.; return; }
 	if (n == 1) { *s = a[0]; return; }
 	if (n == 2) { *s = a[0] + a[1]; return; }
-	if (n == 3) { *s = a[0] + a[1] + a[2]; return; }
-	if (n == 4) { *s = a[0] + a[1] + a[2] + a[3]; return; }
-	if (n == 5) { *s = a[0] + a[1] + a[2] + a[3] + a[4]; return; }
+	if (_SUMMATION_BTF_THR > n) { fstrsum(a, n, s); return; }
 	// recurse shift 2
 	*s = 0.f;
 	size_t n0 = 0, n1 = 1, n2 = 2, nc = 0, idx = 0, itmp = 0;
@@ -112,10 +110,8 @@ void fdncs2m(float *a, size_t n, float *s)
 			// roll-out to 5
 			if (1 == nc) { dst[itmp] = a[n0]; }
 			else if (2 == nc) { dst[itmp] = a[n0] + a[1 + n0]; }
-			else if (3 == nc) { dst[itmp] = a[n0] + a[1 + n0] + a[2 + n0]; }
-			else if (4 == nc) { dst[itmp] = a[n0] + a[1 + n0] + a[2 + n0] + a[3 + n0]; }
-			else if (5 == nc) { dst[itmp] = a[n0] + a[1 + n0] + a[2 + n0] + a[3 + n0] + a[4 + n0]; }
-			else if (5 < nc) {
+			if (_SUMMATION_BTF_THR > nc) { fstrsum(&a[n0], nc, &dst[itmp]); return; }
+			else if (_SUMMATION_BTF_THR <= nc) {
 				tmp = &a[n0]; // link to offset in a
 				/*for (idx = 0; idx < nc; idx++) {
 					dst[itmp] += tmp[idx];
@@ -153,9 +149,7 @@ void fdncs2(float *a, size_t n, float *s)
 	if (n <= 0) { *s = 0.; return; }
 	if (n == 1) { *s = a[0]; return; }
 	if (n == 2) { *s = a[0] + a[1]; return; }
-	if (n == 3) { *s = a[0] + a[1] + a[2]; return; }
-	if (n == 4) { *s = a[0] + a[1] + a[2] + a[3]; return; }
-	if (n == 5) { *s = a[0] + a[1] + a[2] + a[3] + a[4]; return; }
+	if (_SUMMATION_BTF_THR > n) { fstrsum(a, n, s); return; }
 	// recurse shift 2
 	*s = 0.f;
 	size_t n0 = 0, n1 = 1, n2 = 2, nc = 0, idx = 0, itmp = 0;
@@ -210,10 +204,8 @@ void fdncs2(float *a, size_t n, float *s)
 			// roll-out to 5
 			if (1 == nc) { dst[itmp] = a[n0]; }
 			else if (2 == nc) { dst[itmp] = a[n0] + a[1 + n0]; }
-			else if (3 == nc) { dst[itmp] = a[n0] + a[1 + n0] + a[2 + n0]; }
-			else if (4 == nc) { dst[itmp] = a[n0] + a[1 + n0] + a[2 + n0] + a[3 + n0]; }
-			else if (5 == nc) { dst[itmp] = a[n0] + a[1 + n0] + a[2 + n0] + a[3 + n0] + a[4 + n0]; }
-			else if (5 < nc) {
+			if (_SUMMATION_BTF_THR > nc) { fstrsum(&a[n0], nc, &dst[itmp]); return; }
+			else if (_SUMMATION_BTF_THR <= nc) {
 				memcpy(tmp, &a[n0], sizeof(float)*nc); // prepare summation buffer
 				/*for (idx = 0; idx < nc; idx++) {
 					dst[itmp] += tmp[idx];
